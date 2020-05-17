@@ -17,3 +17,28 @@ def get_traveler_location(traveler):
 test_destination_index = get_traveler_location(test_traveler)
 
 print(test_destination_index)
+
+#list comprehension to make empty list for each location
+attractions = [[] for location in destinations]
+print(attractions)
+
+def add_attraction(destination, attraction):
+  try:
+    destination_index = get_destination_index(destination)
+  except ValueError:
+    print("Error Caught!")
+  attractions_for_destination = attractions[destination_index].append(attraction)
+  
+#Add more attractions to the specific list defined by destination index in the attractions list of lists
+add_attraction('Los Angeles, USA', ['Venice Beach', ['beach']])
+add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
+add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
+add_attraction("Shanghai, China", ["Yu Garden", ["garden", "historcical site"]])
+add_attraction("Shanghai, China", ["Yuz Museum", ["art", "museum"]])
+add_attraction("Shanghai, China", ["Oriental Pearl Tower", ["skyscraper", "viewing deck"]])
+add_attraction("Los Angeles, USA", ["LACMA", ["art", "museum"]])
+add_attraction("São Paulo, Brazil", ["São Paulo Zoo", ["zoo"]])
+add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
+add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
+add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
+print(attractions)
